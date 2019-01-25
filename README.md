@@ -1,25 +1,11 @@
-### git commit -m 'Adding a Sidedrawer Toggle Button'
-
-Section 8, Lecture 141
-Try first alone in branch toggle-button
-
 > > > > > > > 48e04a6dde572166c02053f55f30258f0324f777
 
-### git commit -m 'improve performance'
+continued from b2 - it's a burger 4 repo
 
-Improving Performance
-Section 8, Lecture 145
+[React 16.6 - The Complete Guide (incl. React Router & Redux)](https://www.udemy.com/react-the-complete-guide-incl-redux/)
 
-Check the OrderSummary and Modal
+Section 10
+Burger Builder Project: Accessing a Server
+Lectures 168 - 177
 
-### git commit -m 'Changing the Folder Structure'
-
-Section 8, Lecture 147
-
-# Section 9
-
-## Http / Ajax
-
-### Reaching out to the Web
-
-### git commit -m 'http ajax'
+Note: The ... is empty, because this is a paid course.
