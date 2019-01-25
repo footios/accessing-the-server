@@ -10,7 +10,7 @@ class Modal extends Component {
     console.log(this.props.show);
     return (
       this.props.show !== nextProps.show ||
-      nextProps.children !== this.props.children
+      this.props.children !== nextProps.children
     );
   }
   // So now, if above is true Modal will update and also OrderSummary

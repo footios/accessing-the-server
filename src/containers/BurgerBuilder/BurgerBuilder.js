@@ -82,6 +82,38 @@ class BurgerBuilder extends Component {
     this.setState({ purchasing: false });
   };
 
+  // from Q&A
+  // purchaseContinueHandler = async () => {
+  //   // change the state of loading to true
+  //   this.setState({loading: true});
+  //   const order = {
+  //     ingredients: this.state.ingredients,
+  //     price: this.state.totalPrice,
+  //     customer: {
+  //       name: 'Mike Kan',
+  //       address: {
+  //         city: 'Bucharest',
+  //         zipCode: '123456'
+  //       },
+  //       email: 'm.ennoh@gmail.com',
+  //       delivery: 'fastest'
+  //     }
+  //   }
+
+  //   try {
+  //     const response = await axiosOrders.post('/order.json', order);
+  //     setTimeout(() => {
+  //       this.setState({loading: false, purchasing: false})
+  //     }, 3000);
+  //     console.log(response);
+  //   } catch (error) {
+  //     setTimeout(() => {
+  //       this.setState({loading: false, purchasing: false})
+  //     }, 3000);
+  //     console.log(error);
+  //   }
+  // }
+
   purchaseContinueHandler = () => {
     // alert("You continue!");
 
@@ -104,11 +136,18 @@ class BurgerBuilder extends Component {
       deliveryMethod: "fastest"
     };
 
-    // especially fro firebase, we add .json
     axios
-      .post("/orders.json", order)
-      .then(response => this.setState({ loading: false, purchasing: false }))
-      .then(error => this.setState({ loading: false, purchasing: false }));
+      .post("/order.json", order)
+      .then(response =>
+        setTimeout(() => {
+          this.setState({ loading: false, purchasing: false });
+        }, 3000)
+      )
+      .catch(error =>
+        setTimeout(() => {
+          this.setState({ loading: false, purchasing: false });
+        }, 3000)
+      );
   };
 
   render() {
