@@ -8,7 +8,10 @@ class Modal extends Component {
   // It should only update, if this.props.show changes...
   shouldComponentUpdate(nextProps, nextState) {
     console.log(this.props.show);
-    return this.props.show !== nextProps.show;
+    return (
+      this.props.show !== nextProps.show ||
+      nextProps.children !== this.props.children
+    );
   }
   // So now, if above is true Modal will update and also OrderSummary
   componentWillUpdate() {

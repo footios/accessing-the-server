@@ -9,3 +9,6 @@ Burger Builder Project: Accessing a Server
 Lectures 168 - 177
 
 Note: The ... is empty, because this is a paid course.
+
+173. We added the Spinner but we didn't see it, because the Modal doesn't update.
+     We should check also if the children of Modal (i.e. OrderSummary) change.
