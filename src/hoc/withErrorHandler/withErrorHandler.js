@@ -10,12 +10,12 @@ const withErrorHandler = (WrappedComponent, axios) => {
     };
 
     UNSAFE_componentWillMount = () => {
-      axios.interceptors.request.use(req => {
+      this.reqInterceptor = axios.interceptors.request.use(req => {
         this.setState({ error: null });
         return req;
       });
 
-      axios.interceptors.response.use(
+      this.resInterceptor = axios.interceptors.response.use(
         res => res,
         error => {
           console.log(error);
@@ -23,6 +23,14 @@ const withErrorHandler = (WrappedComponent, axios) => {
           this.setState({ error: error });
         }
       );
+    };
+
+    // prevent memory leaks
+    componentWillUnmount = () => {
+      console.log("Will Unmount", this.reqInterceptor, this.resInterceptor);
+
+      axios.interceptors.request.eject(this.reqInterceptor);
+      axios.interceptors.request.eject(this.resInterceptor);
     };
 
     errorConfirmedHandler = () => {
