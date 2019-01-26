@@ -13,7 +13,7 @@ class Modal extends Component {
       nextProps.children !== this.props.children
     );
   }
-  // So now, if above is true Modal will update and also OrderSummary
+  // So now, only if above is true Modal will update and also OrderSummary
   componentWillUpdate() {
     console.log("Modal will update");
   }
