@@ -5,16 +5,12 @@ import Eject from "../Eject/Eject";
 
 const withErrorHandler = (WrappedComponent, axios) => {
   return class extends Component {
-    state = {
-      error: null
-    };
-
-    UNSAFE_componentWillMount = () => {
+    constructor(props) {
+      super(props);
       axios.interceptors.request.use(req => {
         this.setState({ error: null });
         return req;
       });
-
       axios.interceptors.response.use(
         res => res,
         error => {
@@ -23,7 +19,10 @@ const withErrorHandler = (WrappedComponent, axios) => {
           this.setState({ error: error });
         }
       );
-    };
+      this.state = {
+        error: null
+      };
+    }
 
     errorConfirmedHandler = () => {
       this.setState({ error: null });
